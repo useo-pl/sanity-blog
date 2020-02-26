@@ -1,5 +1,5 @@
-@import '../styles/custom-media.css';
-@import '../styles/custom-properties.css';
+@import "../styles/custom-media.css";
+@import "../styles/custom-properties.css";
 
 .root {
   position: relative;
@@ -12,6 +12,7 @@
   max-width: 960px;
   padding: 1em;
   display: flex;
+  align-items: center;
 
   @media (--media-min-small) {
     padding: 1.5em 1.5em;
