@@ -1,13 +1,23 @@
 module.exports = {
-  extends: ['standard', 'standard-react', 'plugin:import/errors', 'plugin:import/warnings'],
-  rules: {
-    'react/prop-types': 0,
-    'object-curly-spacing': ['error', 'never']
-  },
-  settings: {
-    react: {
-      pragma: 'React',
-      version: '16.8.4'
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "extends": "eslint:recommended",
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
     }
-  }
-}
+};
