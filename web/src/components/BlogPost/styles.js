@@ -1,19 +1,13 @@
-@import '../styles/custom-media.css';
-@import '../styles/custom-properties.css';
+import styled from "styled-components";
+import { PAD_L } from "../../styles/breakpoints";
 
-.root {}
-
-.title {
-  composes: responsiveTitle1 from './typography.module.css';
-}
-
-.mainImage {
+const Image = styled.div`
   display: block;
   position: relative;
   background: var(--color-very-light-gray);
   padding-bottom: calc(9 / 16 * 100%);
 
-  @nest & img {
+  img {
     display: block;
     position: absolute;
     top: 0;
@@ -23,67 +17,69 @@
     vertical-align: top;
     object-fit: cover;
   }
-}
+`;
 
-.grid {
-  @media (--media-min-medium) {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-column-gap: 2em;
+const Grid = styled.div`
+  display: grid;
+  grid-column-gap: 2em;
+  grid-template-columns: 1fr;
+
+  @media (min-width: ${PAD_L}) {
     grid-template-columns: 3fr 1fr;
   }
-}
+`;
 
-.mainContent {
-  @nest & a {
+const Main = styled.div`
+  a {
     color: var(--color-accent);
 
     @media (hover: hover) {
-      @nest &:hover {
+      &:hover {
         color: inherit;
       }
     }
   }
 
-  @nest & h2, & h3, & h4, & h5, & h6 {
+  h2,
+  & h3,
+  & h4,
+  & h5,
+  & h6 {
     font-weight: 600;
   }
 
-  @nest & figure {
+  figure {
     margin: 0;
     padding: 0;
 
-    @nest & img {
+    img {
       max-width: 100%;
     }
   }
-}
+`;
 
-.metaContent {
-}
-
-.publishedAt {
-  composes: small from './typography.module.css';
+const PublishDate = styled.div`
   margin: 2rem 0 3rem;
   color: var(--color-gray);
-}
+`;
 
-.categories {
+const Categories = styled.div`
   border-top: 1px solid var(--color-very-light-gray);
   margin: 2rem 0 3rem;
 
-  @nest & ul {
+  ul {
     list-style: none;
     margin: 0.75rem 0;
     padding: 0;
   }
 
-  @nest & ul li {
+  ul li {
     padding: 0.25rem 0;
   }
-}
 
-.categoriesHeadline {
-  composes: base from './typography.module.css';
-  margin: 0.5rem 0 0;
-}
+  h3 {
+    margin: 0.5rem 0 0;
+  }
+`;
+
+export { Image, Grid, Main, PublishDate, Categories };
